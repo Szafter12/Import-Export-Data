@@ -1,0 +1,19 @@
+{
+    "name": "schafter/import_export",
+    "description": "simple import export data app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Schafter\\ImportExport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jakub",
+            "email": "jakubpachut@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.1"
+    }
+}
