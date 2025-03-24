@@ -14,10 +14,6 @@ class ExcelFileHandler
         $this->spreadsheet = IOFactory::load($file);
         $sheet = $this->spreadsheet->getActiveSheet();
         $data = $sheet->toArray();
-        foreach ($data as $row) {
-            echo '<pre>';
-            print_r($row);
-            echo '</pre>';
-        }
+        return $data;
     }
 }

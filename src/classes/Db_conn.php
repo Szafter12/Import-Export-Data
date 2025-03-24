@@ -2,18 +2,10 @@
 
 class Db_conn
 {
-    private $host;
-    private $user;
-    private $password;
-    private $db_name;
-
-    public function __construct($host, $user, $password, $db_name)
-    {
-        $this->host = $host;
-        $this->user = $user;
-        $this->password = $password;
-        $this->db_name = $db_name;
-    }
+    private $host = 'localhost';
+    private $user = 'root';
+    private $password = '';
+    private $db_name = 'test';
 
     protected function conn()
     {
