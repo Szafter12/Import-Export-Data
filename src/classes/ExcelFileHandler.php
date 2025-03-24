@@ -1,30 +1,23 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ExcelFileHandler {
-    private $folder;
+class ExcelFileHandler
+{
     private $spreadsheet;
 
-    public function __construct($folder) {
-        $this->folder = `../../{$folder}/`;
-
-        if (!is_dir($this->folder)) {
-            mkdir($this->folder, 0777, true);
+    public function readFile($file)
+    {
+        $this->spreadsheet = IOFactory::load($file);
+        $sheet = $this->spreadsheet->getActiveSheet();
+        $data = $sheet->toArray();
+        foreach ($data as $row) {
+            echo '<pre>';
+            print_r($row);
+            echo '</pre>';
         }
-
-        $this->spreadsheet = new Spreadsheet();
     }
-
 }
-
-$activateWorksheet = $spreadsheet->getActiveSheet();
-$activateWorksheet->setCellValue('A1', 'Hello World !');
-
-$fileName = $folderName . 'hello_world.xlsx';
-
-$writer = new Xlsx($spreadsheet);
-$writer->save($fileName);
