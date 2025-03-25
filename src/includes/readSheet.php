@@ -19,6 +19,25 @@ try {
             $tableName = $_POST['tableName'];
             $columns = $_POST['columns'];
 
+            if (!preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/', $tableName)) {
+                response('invalid table name');
+            }
+
+            if (count($columns) === 0) {
+                response('columns cannot be empty');
+            }
+
+            $uniqueColumns = array_unique($columns);
+            if (count($columns) !== count($uniqueColumns)) {
+                response('columns must be unique');
+            }
+
+            foreach ($columns as $column) {
+                if (!preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/', $column)) {
+                    response('invalid column name');
+                }
+            }
+
             if (isset($_FILES['sheet']) && $_FILES['sheet']['error'] == UPLOAD_ERR_OK) {
                 $file_tmp_path = $_FILES['sheet']['tmp_name'];
                 $file_name = $_FILES['sheet']['name'];
