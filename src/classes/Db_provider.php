@@ -1,6 +1,6 @@
 <?php
 
-require 'db_conn.php';
+require __DIR__ . '/Db_conn.php';
 
 class Db_provider extends Db_conn
 {
