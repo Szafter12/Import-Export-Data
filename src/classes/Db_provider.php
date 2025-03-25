@@ -25,11 +25,21 @@ class Db_provider extends Db_conn
 
             foreach ($data as $row) {
                 if (!$stmt->execute($row)) {
-                    throw new PDOException("Failed to execute statement");
+                    return [
+                        'status' => 'failed',
+                        'message' => 'Failed to execute statement'
+                    ];
                 }
             }
+            return [
+                'status' => 'success',
+                'message' => 'Data inserted successfully'
+            ];
         } catch (PDOException $e) {
-            throw new PDOException("Database error" . $e->getMessage());
+            return [
+                'status' => 'failed',
+                'message' => $e->getMessage()
+            ];
         }
     }
 }

@@ -8,13 +8,14 @@
 </head>
 
 <body>
-    <form action="includes/readSheet.php" method="post" enctype="multipart/form-data">
+    <form enctype="multipart/form-data" id="form">
         <input type="file" name="sheet" id="sheet">
         <input type="text" name="tableName" id="tableName" placeholder="table name">
         <input type="number" name="columnCount" id="columnCount">
         <div class="columnForms"></div>
-        <button type="submit">send</button>
+        <button type="submit" id="sendBtn">send</button>
     </form>
+    <p class="error"></p>
     <script src="js/main.js"></script>
 </body>
 
