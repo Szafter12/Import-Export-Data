@@ -23,6 +23,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	async function handleData(e) {
 		e.preventDefault()
+		successBox.textContent = ''
+		errorBox.textContent = ''
 
 		const requiredFields = [
 			document.getElementById('sheet'),
@@ -82,6 +84,8 @@ window.addEventListener('DOMContentLoaded', function () {
 				body: formData,
 			})
 			const data = await res.json()
+
+			console.log(data)
 
 			if (data.status === 'success') {
 				errorBox.textContent = ''
