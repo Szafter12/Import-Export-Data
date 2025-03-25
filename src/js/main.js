@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	const form = document.querySelector('#form')
 	const columnContainer = document.querySelector('.columnForms')
 	const errorBox = document.querySelector('.error')
+	const successBox = document.querySelector('.success')
 	const sendBtn = document.querySelector('#sendBtn')
 	let columnNumber = 0
 
@@ -14,6 +15,8 @@ window.addEventListener('DOMContentLoaded', function () {
 			column.setAttribute('type', 'text')
 			column.setAttribute('placeholder', 'Column ' + (i + 1))
 			column.setAttribute('name', 'columns[]')
+			column.classList.add('form-control')
+			column.classList.add('w-25')
 			columnContainer.appendChild(column)
 		}
 	}
@@ -35,13 +38,6 @@ window.addEventListener('DOMContentLoaded', function () {
 		})
 
 		if (emptyFields.length > 0) {
-			emptyFields.forEach(field => {
-				field.classList.add('error-field')
-				field.addEventListener('input', () => {
-					field.classList.remove('error-field')
-				})
-			})
-
 			errorBox.textContent = 'All fields are required'
 			return
 		}
@@ -77,7 +73,8 @@ window.addEventListener('DOMContentLoaded', function () {
 		const formData = new FormData(this)
 
 		try {
-			errorBox.textContent = 'Loading...'
+			errorBox.textContent = ''
+			successBox.textContent = 'Loading...'
 			sendBtn.disabled = true
 
 			const res = await fetch('http://localhost/import_export/src/includes/readSheet.php', {
@@ -86,7 +83,16 @@ window.addEventListener('DOMContentLoaded', function () {
 			})
 			const data = await res.json()
 
-			errorBox.textContent = data.message
+			if (data.status === 'success') {
+				errorBox.textContent = ''
+				successBox.textContent = data.message
+				form.reset()
+				setColumnNumber()
+			} else {
+				successBox.textContent = ''
+				errorBox.textContent = data.message
+			}
+
 			sendBtn.disabled = false
 		} catch (error) {
 			errorBox.textContent = 'Error: ' + error

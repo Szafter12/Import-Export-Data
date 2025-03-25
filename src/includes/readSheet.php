@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 require '../classes/ExcelFileHandler.php';
 require '../classes/Db_provider.php';
 
-$respons = [
+$response = [
     'status' => 'failed',
     'message' => 'unknown error'
 
@@ -102,7 +102,7 @@ function insertDataToDatabase($columns, $data, $tableName)
 
 function response($message)
 {
-    $respons['message'] = $message;
-    echo json_encode($respons);
+    $response['message'] = $message;
+    echo json_encode($response);
     exit;
 }
