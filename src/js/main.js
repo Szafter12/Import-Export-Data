@@ -2,10 +2,16 @@ window.addEventListener('DOMContentLoaded', function () {
 	const counter = document.querySelector('#columnCount')
 	const form = document.querySelector('#form')
 	const columnContainer = document.querySelector('.columnForms')
+	const counter2 = document.getElementById('columnCount2')
+	const form2 = document.getElementById('form2')
+	const columnContainer2 = document.getElementById('columnForms2')
 	const errorBox = document.querySelector('.error')
 	const successBox = document.querySelector('.success')
 	const sendBtn = document.querySelector('#sendBtn')
+	const sendBtn2 = document.getElementById('sendBtn2')
+	const setBtns = document.querySelectorAll('.setBtn')
 	let columnNumber = 0
+	let columnNumber2 = 0
 
 	const setColumnNumber = () => {
 		columnNumber = counter.value
@@ -18,6 +24,20 @@ window.addEventListener('DOMContentLoaded', function () {
 			column.classList.add('form-control')
 			column.classList.add('w-25')
 			columnContainer.appendChild(column)
+		}
+	}
+
+	const setColumnNumber2 = () => {
+		columnNumber2 = counter2.value
+		columnContainer2.innerHTML = ''
+		for (let i = 0; i < columnNumber2; i++) {
+			const column = document.createElement('input')
+			column.setAttribute('type', 'text')
+			column.setAttribute('placeholder', 'Column ' + (i + 1))
+			column.setAttribute('name', 'columns[]')
+			column.classList.add('form-control')
+			column.classList.add('w-25')
+			columnContainer2.appendChild(column)
 		}
 	}
 
@@ -105,6 +125,17 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	setBtns.forEach(btn =>
+		btn.addEventListener('click', () => {
+			section = btn.getAttribute('data-section')
+			section = document.getElementById(section)
+			sections = document.querySelectorAll('.section')
+			sections.forEach(s => s.classList.remove('active'))
+			section.classList.add('active')
+		})
+	)
+
 	counter.addEventListener('change', setColumnNumber)
+	counter2.addEventListener('change', setColumnNumber2)
 	form.addEventListener('submit', handleData)
 })
