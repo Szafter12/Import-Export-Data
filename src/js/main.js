@@ -100,6 +100,8 @@ window.addEventListener('DOMContentLoaded', function () {
 			sendBtn.disabled = false
 		} catch (error) {
 			errorBox.textContent = 'Error: ' + error
+			sendBtn.disabled = false
+			successBox.textContent = ''
 		}
 	}
 
