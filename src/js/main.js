@@ -79,7 +79,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			successBox.textContent = 'Loading...'
 			sendBtn.disabled = true
 
-			const res = await fetch('http://localhost/Import-Export-Data/src/includes/readSheet.php', {
+			const res = await fetch('http://localhost/import_export/src/includes/readSheet.php', {
 				method: 'POST',
 				body: formData,
 			})

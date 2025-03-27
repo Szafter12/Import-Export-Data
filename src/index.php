@@ -28,12 +28,11 @@
         <button type="submit" id="sendBtn" class="btn btn-primary align-self-end py-2 px-4">send</button>
     </form>
 
-    <div class="container mx-auto mt-5 d-flex flex-column align-items-center gap-3 border border-primary p-5">
+    <div class="container mx-auto mt-5 d-flex flex-column align-items-center gap-3 border rounded-2 border-primary p-5">
         <h2 class="mb-5">Respond will show here</h2>
         <p class="error text-danger fs-3"></p>
         <p class="success text-success fs-3"></p>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
