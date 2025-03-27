@@ -20,7 +20,10 @@ class Db_provider extends Db_conn
         try {
             $stmt = $pdo->prepare($sql);
             if (!$stmt) {
-                throw new PDOException("Failed to prepare statement");
+                return [
+                    'status' => 'failed',
+                    'message' => 'Failed to prepare statement'
+                ];
             }
 
             foreach ($data as $row) {

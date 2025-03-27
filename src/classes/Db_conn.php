@@ -3,8 +3,8 @@
 class Db_conn
 {
     private $host = 'localhost';
-    private $user = 'root';
-    private $password = '';
+    private $user = 'szafter';
+    private $password = 'Karate00200020.';
     private $db_name = 'test';
 
     protected function conn()
