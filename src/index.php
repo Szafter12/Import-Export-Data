@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
-            min-height: 100vh;;
+            min-height: 100vh;
+            ;
             background-color: #0cbaba;
             background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
             background-size: cover;
@@ -16,18 +17,41 @@
             background-position: center;
             color: #fff;
         }
+
         .section {
             display: none;
         }
+
         .section.active {
             display: block;
+        }
+
+        form {
+            max-width: 700px;
+        }
+
+        form,
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 5em;
+        }
+
+        button {
+            background-color: none;
+            box-shadow: 0 0 10px rgba(10, 85, 184, 0.5);
+            border: none;
+            border-radius: 12px;
+            
         }
     </style>
 </head>
 
 <body class="mx-auto py-5 d-flex flex-column flex-lg-row align-items-start container gap-5 min-vh-100">
     <section id="export" class="section active export">
-        <form enctype="multipart/form-data" id="form" class="container w-100 mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-100">
+        <form enctype="multipart/form-data" id="form" class="d-flex flex-column align-items-center gap-5 min-height-100">
             <h1>Export Excel File Data to Database</h1>
             <div class="form-group w-100 d-flex flex-column align-items-center gap-2">
                 <label for="sheet" class="h6 align-self-start">Choose excel file</label>
@@ -47,7 +71,7 @@
     </section>
 
     <section id="import" class="section import">
-        <form id="form2" class="container mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-100 w-100">
+        <form id="form2" class="d-flex flex-column align-items-center gap-5 min-height-100 w-100">
             <h1>Import Database table data to excel file</h1>
             <div class="form-group w-100 d-flex flex-column align-items-center gap-2">
                 <label for="tableName2" class="h6 align-self-start">Insert database table name</label>
@@ -63,13 +87,13 @@
     </section>
 
 
-    <div class="d-flex flex-column w-100 gap-5 h-100">
-        <div class="d-flex flex-column align-items-center gap-3 border rounded-2 border-primary p-5">
+    <div class="d-flex flex-column w-50 gap-5 h-100">
+        <div class="glass d-flex flex-column align-items-center gap-3">
             <h2 class="mb-5">Respond will show here</h2>
             <p class="error text-danger fs-3"></p>
             <p class="success text-success fs-3"></p>
         </div>
-        <div class="d-flex flex-column align-items-center gap-3 border rounded-2 border-primary p-5">
+        <div class="glass d-flex flex-column align-items-center gap-3">
             <button class="setBtn btn btn-primary py-3 px-4" data-section="export">Export Excel file data to database</button>
             <button class="setBtn btn btn-primary py-3 px-4" data-section="import">Import Database table data to excel file</button>
         </div>
