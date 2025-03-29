@@ -6,12 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Import/Export Data App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <style>
+        body {
+            min-height: 100vh;;
+            background-color: #0cbaba;
+            background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body class="mx-auto py-5 d-flex flex-column flex-lg-row align-items-start container gap-5 min-vh-100">
     <section id="export" class="section active export">
-        <form enctype="multipart/form-data" id="form" class="container mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-50">
+        <form enctype="multipart/form-data" id="form" class="container w-100 mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-100">
             <h1>Export Excel File Data to Database</h1>
             <div class="form-group w-100 d-flex flex-column align-items-center gap-2">
                 <label for="sheet" class="h6 align-self-start">Choose excel file</label>
@@ -31,7 +47,7 @@
     </section>
 
     <section id="import" class="section import">
-        <form id="form2" class="container mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-50">
+        <form id="form2" class="container mx-auto d-flex flex-column align-items-center gap-5 border border-primary p-5 rounded-2 min-height-100 w-100">
             <h1>Import Database table data to excel file</h1>
             <div class="form-group w-100 d-flex flex-column align-items-center gap-2">
                 <label for="tableName2" class="h6 align-self-start">Insert database table name</label>
