@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Import/Export Data App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <style>
+        body {
+            background-color: #0cbaba;
+            background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body class="mx-auto py-5 d-flex flex-column flex-lg-row align-items-start container gap-5">
