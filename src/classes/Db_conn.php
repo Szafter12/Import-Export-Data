@@ -1,11 +1,26 @@
 <?php
 
+require_once '../../vendor/autoload.php'; // Ładowanie autoloadera Composera
+
+use Dotenv\Dotenv;
+
 class Db_conn
 {
-    private $host = 'localhost';
-    private $user = 'szafter';
-    private $password = 'Karate00200020.';
-    private $db_name = 'test';
+    private $host;
+    private $user;
+    private $password;
+    private $db_name;
+
+    public function __construct()
+    {
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../'); 
+        $dotenv->load();
+
+        $this->host = $_ENV['DB_HOST'];
+        $this->user = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASSWORD'];
+        $this->db_name = $_ENV['DB_NAME'];
+    }
 
     protected function conn()
     {
